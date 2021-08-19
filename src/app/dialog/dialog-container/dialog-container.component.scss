@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.header {
+  border-bottom: 1px solid red;
+  flex: 0 0 30px;
+}
+
+.body {
+  flex: 1 1 auto;
+}
+
+.footer {
+  flex: 0 0 30px;
+  border-top: 1px solid red;
+}

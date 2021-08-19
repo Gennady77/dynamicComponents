@@ -2,5 +2,10 @@ import { Type } from "@angular/core";
 
 export type NotificationType = {
   component: Type<any>;
-  data: any;
+  config: NotificationConfig;
 };
+
+
+export class NotificationConfig<D = any> {
+  public data!: D;
+}

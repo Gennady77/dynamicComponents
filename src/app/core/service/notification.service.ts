@@ -11,13 +11,13 @@ export class NotificationService {
 
   constructor() { }
 
-  public open(component: Type<any>, data: any) {
-    const config = {
+  public open(component: Type<any>, config: any) {
+    const val = {
       component,
-      data
+      config
     };
 
-    this.content$.next(config);
+    this.content$.next(val);
   }
 
   public close() {

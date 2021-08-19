@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NotificationPopupComponent } from './core/component/notification-popup/notification-popup.component';
 import { HelloComponent } from './core/component/hello/hello.component';
-import { SampleModule } from "./sample/sample.module";
+import { DialogModule } from "./dialog/dialog.module";
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { SampleModule } from "./sample/sample.module";
   ],
   imports: [
     BrowserModule,
-    SampleModule
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

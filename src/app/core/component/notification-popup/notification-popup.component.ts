@@ -2,13 +2,15 @@ import {
   AfterViewInit,
   Component,
   ComponentFactoryResolver,
-  HostListener, OnDestroy,
-  OnInit,
+  Injector, OnDestroy,
+  OnInit, Type,
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
-import {NotificationService} from "../../service/notification.service";
-import {Subscription} from "rxjs";
+import { NotificationService } from "../../service/notification.service";
+import { Subscription } from "rxjs";
+import { NotificationPopupInjector } from "./class/notification-popup-injector";
+import { NotificationConfig } from "../../model/notification.model";
 
 @Component({
   selector: 'app-notification-popup',
@@ -22,7 +24,8 @@ export class NotificationPopupComponent implements OnInit, AfterViewInit, OnDest
 
   constructor(
     public service: NotificationService,
-    private componentFactoryResolver: ComponentFactoryResolver
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private injector: Injector
     ) {
   }
 
@@ -41,18 +44,19 @@ export class NotificationPopupComponent implements OnInit, AfterViewInit, OnDest
         return;
       }
 
+      const map = new WeakMap<Type<any>, any>();
+
+      map.set(NotificationConfig, value.config);
+
       const factory = this.componentFactoryResolver.resolveComponentFactory(value.component);
 
-      const componentRef = this.vcr.createComponent(factory);
-
-      componentRef.instance.data = value.data;
+      this.vcr.createComponent(factory, 0, new NotificationPopupInjector(this.injector, map));
     });
 
     this.subscription.add(content$);
   }
 
-  @HostListener('click')
-  onHostClick() {
+  onCloseClick() {
     this.service.close();
   }
 
