@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NotificationService} from "./core/service/notification.service";
-import {HelloComponent} from "./core/component/hello/hello.component";
+import { SampleComponent } from "./sample/component/sample/sample.component";
 
 @Component({
   selector: 'app-root',
@@ -16,6 +16,6 @@ export class AppComponent implements OnInit {
   }
 
   public onAddClick() {
-    this.service.content$.next(HelloComponent);
+    this.service.open(SampleComponent, 'outer content!!!!!!');
   }
 }
