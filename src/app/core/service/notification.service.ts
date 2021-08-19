@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, Type} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 
 @Injectable({
@@ -6,7 +6,7 @@ import {BehaviorSubject} from "rxjs";
 })
 export class NotificationService {
 
-  public content$ = new BehaviorSubject<string | undefined>(undefined);
+  public content$ = new BehaviorSubject<Type<any> | undefined>(undefined);
 
   constructor() { }
 }
