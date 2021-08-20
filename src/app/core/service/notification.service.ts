@@ -1,6 +1,6 @@
 import {Injectable, Type} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
-import { NotificationType } from "../model/notification.model";
+import { NotificationConfig, NotificationType } from "../model/notification.model";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class NotificationService {
 
   constructor() { }
 
-  public open(component: Type<any>, config: any) {
+  public open<T>(component: Type<any>, config: NotificationConfig<T>) {
     const val = {
       component,
       config

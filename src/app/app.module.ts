@@ -2,21 +2,18 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { NotificationPopupComponent } from './core/component/notification-popup/notification-popup.component';
-import { HelloComponent } from './core/component/hello/hello.component';
 import { DialogModule } from "./dialog/dialog.module";
+import { CoreModule } from "./core/core.module";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NotificationPopupComponent,
-    HelloComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
+    CoreModule,
     DialogModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

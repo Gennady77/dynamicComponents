@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NotificationService} from "./core/service/notification.service";
-import { DialogContainerComponent } from "./dialog/dialog-container/dialog-container.component";
+import { DialogConfig, DialogContainerComponent } from "./dialog/dialog-container/dialog-container.component";
 import { HelloComponent } from "./core/component/hello/hello.component";
 
 @Component({
@@ -17,10 +17,10 @@ export class AppComponent implements OnInit {
   }
 
   public onAddClick() {
-    this.service.open(DialogContainerComponent, {
+    this.service.open<DialogConfig>(DialogContainerComponent, {
       data: {
         header: 'header!',
-        body: HelloComponent,
+        body: {component: HelloComponent},
         footer: 'footer!'
       }
     });

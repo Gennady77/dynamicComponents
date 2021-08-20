@@ -1,5 +1,5 @@
 <div class="header">{{ config.data.header }}</div>
 <div class="body">
-  <ng-container #body></ng-container>
+  <ng-container [appHelperContent]="config.data.body"></ng-container>
 </div>
 <div class="footer">{{ config.data.footer }}</div>

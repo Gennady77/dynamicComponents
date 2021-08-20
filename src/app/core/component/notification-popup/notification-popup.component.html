@@ -1,2 +1,2 @@
 <button class="close" (click)="onCloseClick()">X</button>
-<ng-container #content></ng-container>
+<ng-container [appHelperContent]="service.content$ | async"></ng-container>
