@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { DialogModule } from "./dialog/dialog.module";
 import { CoreModule } from "./core/core.module";
+import { DatabaseModule } from "./database/database.module";
 
 @NgModule({
   declarations: [
@@ -12,8 +13,10 @@ import { CoreModule } from "./core/core.module";
   imports: [
     BrowserModule,
     CoreModule,
-    DialogModule
+    DialogModule,
+    DatabaseModule
   ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

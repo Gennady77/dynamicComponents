@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NotificationService} from "./core/service/notification.service";
 import { DialogConfig, DialogContainerComponent } from "./dialog/dialog-container/dialog-container.component";
-import { HelloComponent } from "./core/component/hello/hello.component";
+import { PersonComponent } from "./database/person/person.component";
 
 @Component({
   selector: 'app-root',
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     this.service.open<DialogConfig>(DialogContainerComponent, {
       data: {
         header: 'header!',
-        body: {component: HelloComponent},
+        body: {component: PersonComponent},
         footer: 'footer!'
       }
     });
